@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="menu-styles.css">
+  <title>Smishing - Messages</title>
+</head>
+<body>
+  <div class="container">
+    <div class="phone-frame">
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+          <span class="signal">📶</span>
+          <span class="wifi">📡</span>
+          <span class="battery">🔋</span>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <div class="app-header">
+        <div class="header-title">Messages</div>
+        
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search" id="searchInput">
+      </div>
+
+      <!-- Welcome Banner -->
+      <div class="welcome-banner">
+        <div class="banner-icon">🛡️</div>
+        <div class="banner-content">
+          <div class="banner-title">Smishing Training</div>
+          <div class="banner-subtitle">Learn to identify smishing attempts</div>
+        </div>
+      </div>
+
+      <!-- Message List -->
+      <div class="message-list" id="messageList">
+        <!-- Messages will be populated here by JavaScript -->
+      </div>
+
+      <!-- Progress Summary -->
+      <div class="progress-summary" id="progressSummary">
+        <div class="summary-item">
+          <div class="summary-label">Completed</div>
+          <div class="summary-value" id="completedCount">0/5</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Correct</div>
+          <div class="summary-value" id="correctCount">0</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Accuracy</div>
+          <div class="summary-value" id="accuracyPercent">0%</div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <button class="nav-btn active">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Messages</span>
+        </button>
+        <button class="nav-btn" id="statsBtn">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Stats</span>
+        </button>
+        <button class="nav-btn" id="resetBtn">
+          <span class="nav-icon">🔄</span>
+          <span class="nav-label">Reset</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu-script.js"></script>
+</body>
+</html>

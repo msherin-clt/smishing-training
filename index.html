@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Smishing Defense Training</title>
+</head>
+<body>
+  <div class="container">
+    <div class="phone-frame">
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+          <span class="signal">📶</span>
+          <span class="wifi">📡</span>
+          <span class="battery">🔋</span>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <div class="app-header">
+        <div class="back-button" style="cursor: pointer;">‹</div>
+        <div class="header-info">
+          <div class="contact-name" id="senderName">Messages</div>
+          <div class="contact-status">Tap to load info</div>
+        </div>
+        <div class="menu-button">⋮</div>
+      </div>
+
+      <!-- Messages Container -->
+      <div class="messages-container" id="messagesContainer">
+        <div class="date-divider">
+          <span>Today</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons" id="actionButtons">
+        <button class="btn btn-accept" id="acceptBtn">
+          <span class="btn-icon">✓</span>
+          <span class="btn-text">Accept</span>
+        </button>
+        <button class="btn btn-question" id="questionBtn">
+          <span class="btn-icon">?</span>
+          <span class="btn-text">Question</span>
+        </button>
+        <button class="btn btn-block" id="blockBtn">
+          <span class="btn-icon">✕</span>
+          <span class="btn-text">Block</span>
+        </button>
+      </div>
+
+      <!-- Feedback Overlay -->
+      <div class="feedback-overlay" id="feedbackOverlay">
+        <div class="feedback-content">
+          <div class="feedback-icon" id="feedbackIcon"></div>
+          <div class="feedback-title" id="feedbackTitle"></div>
+          <div class="feedback-message" id="feedbackMessage"></div>
+          <button class="btn-continue" id="continueBtn">Continue</button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">Message 1 of 3</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
