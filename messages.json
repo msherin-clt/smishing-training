@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "sender": "Wells Fargo Security",
+    "content": "URGENT ACTION REQUIRED: Your account will be suspended in 24 hours due to suspicious activity. Click here immediately to verify your identity: http://wells-fargo-secure.net/verify",
+    "correctAction": "block",
+    "cues": [
+      "Urgency language ('URGENT', '24 hours')",
+      "Suspicious URL (wells-fargo-secure.net instead of wellsfargo.com)",
+      "Threats of account suspension",
+      "Requests immediate action"
+    ],
+    "questionFeedback": "This message uses several common smishing tactics. Notice the urgent language trying to create panic, the suspicious URL that mimics but isn't the real Wells Fargo domain, and the threat of account suspension to pressure you into clicking.",
+    "incorrectFeedback": {
+      "accept": "This is a smishing attempt! Legitimate banks never send urgent messages with links asking you to verify your account. The URL 'wells-fargo-secure.net' is not the official Wells Fargo domain (wellsfargo.com). Always verify by going directly to the official website or calling the bank.",
+      "question": null
+    }
+  },
+  {
+    "id": 2,
+    "sender": "Amazon",
+    "content": "Your Amazon order #123-4567890-1234567 has shipped! Expected delivery: Friday, Feb 14. Track your package in your orders.",
+    "correctAction": "accept",
+    "cues": [
+      "Specific order number format",
+      "Reasonable delivery timeframe",
+      "No suspicious links or requests",
+      "Professional, calm tone"
+    ],
+    "questionFeedback": "This appears to be a legitimate shipping notification. It includes a proper Amazon order number format, gives a specific delivery date, doesn't pressure you to click links, and uses professional language without urgency tactics.",
+    "incorrectFeedback": {
+      "block": "This is actually a legitimate Amazon shipping notification. It has all the hallmarks of a real message: specific order number, reasonable delivery timeframe, and no pressure to click suspicious links. Not all messages are threats!",
+      "question": null
+    }
+  },
+  {
+    "id": 3,
+    "sender": "IRS Tax Center",
+    "content": "You have a pending tax refund of $1,847.32. To claim your refund, please verify your SSN and banking information at: irs-refund-portal.com/claim",
+    "correctAction": "block",
+    "cues": [
+      "IRS never initiates contact via text/messaging",
+      "Suspicious domain (not irs.gov)",
+      "Requests sensitive information (SSN, banking)",
+      "Too-good-to-be-true refund offer"
+    ],
+    "questionFeedback": "Major red flags here! The IRS NEVER initiates contact through messaging apps or texts. They only contact taxpayers by mail. The URL 'irs-refund-portal.com' is not the official IRS website (irs.gov), and requesting your SSN and banking info is a huge warning sign.",
+    "incorrectFeedback": {
+      "accept": "This is a dangerous smishing scam! The IRS never initiates contact via text or messaging - only through official mail. The domain is fake (real IRS is irs.gov), and no legitimate organization will ask for your SSN and banking info through a link. This is identity theft in action.",
+      "question": null
+    }
+  },
+  {
+    "id": 4,
+    "sender": "IT Department",
+    "content": "Hi team, our email server will undergo scheduled maintenance tonight from 11 PM to 2 AM EST. You may experience brief interruptions. No action needed on your part. - Mike from IT",
+    "correctAction": "accept",
+    "cues": [
+      "Internal communication style",
+      "Specific timeframe provided",
+      "Signed by a specific person",
+      "No requests for credentials or clicks",
+      "Routine maintenance is normal"
+    ],
+    "questionFeedback": "This appears to be a legitimate internal IT notification. It provides specific details (time, duration), is signed by a person from IT, doesn't ask you to do anything or click any links, and scheduled maintenance is a normal occurrence.",
+    "incorrectFeedback": {
+      "block": "This is actually a legitimate IT maintenance notification. It has the characteristics of a real internal message: specific timing, signed by an IT person, no suspicious requests, and no pressure to click links or provide credentials. Always consider context - is this the kind of message you'd normally receive?",
+      "question": null
+    }
+  },
+  {
+    "id": 5,
+    "sender": "Apple Support",
+    "content": "Your iCloud storage is full! Upgrade now to avoid losing your photos and data. Limited time: 50% off annual plan. Tap here: apple-cloud-storage.com/upgrade",
+    "correctAction": "block",
+    "cues": [
+      "Suspicious URL (apple-cloud-storage.com not apple.com)",
+      "Creates urgency with 'avoid losing your photos'",
+      "Pressure tactic with 'Limited time' offer",
+      "Unsolicited upgrade offer",
+      "Grammar: Apple uses 'iCloud+' not 'annual plan'"
+    ],
+    "questionFeedback": "While iCloud storage notifications are real, this message has red flags: the URL 'apple-cloud-storage.com' isn't Apple's official domain (apple.com), it uses scare tactics about losing photos, and pressures you with a limited-time offer. Apple sends storage notifications through Settings, not via messages with links.",
+    "incorrectFeedback": {
+      "accept": "This is a smishing attempt masquerading as Apple! The domain 'apple-cloud-storage.com' is fake (Apple uses apple.com). Legitimate storage warnings appear in your device Settings, not through messages with external links. The urgency and 'limited time offer' are manipulation tactics to get you to click without thinking.",
+      "question": null
+    }
+  }
+]
