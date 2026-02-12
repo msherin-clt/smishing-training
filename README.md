@@ -4,12 +4,10 @@ A mobile-style, browser-based learning tool for cybersecurity awareness training
 
 ## Features
 
-- 📱 **Realistic Mobile Interface** - Mimics smartphone messaging apps
-- 🎯 **Three Action Options** - Accept, Block, or Question each message
-- 📊 **Progress Tracking** - Local and server-side statistics
-- 🔄 **Two Learning Modes** - Sequential training or individual message practice
-- 👥 **Multi-User Support** - Centralized statistics for all users
-- 📈 **Admin Dashboard** - View and export user performance data
+-  **Realistic Mobile Interface** - Mimics smartphone messaging apps
+-  **Three Action Options** - Accept, Block, or Question each message
+-  **Progress Tracking** - Local and server-side statistics
+-  **Multi-User Support** - Centralized statistics for all users
 
 ## Project Structure
 
@@ -229,38 +227,6 @@ Content-Type: application/json
 }
 ```
 
-### Get User Statistics
-```http
-GET /api/user-stats/:userId
-```
-
-### Get All Statistics
-```http
-GET /api/all-stats
-```
-
-### Export CSV
-```http
-GET /api/export-csv
-```
-Returns summary CSV with one row per user.
-
-### Export Detailed CSV
-```http
-GET /api/export-detailed-csv
-```
-Returns detailed CSV with one row per attempt/action.
-
-### Export Detailed JSON
-```http
-GET /api/export-json
-```
-Returns comprehensive JSON with all data including:
-- Time spent on each message
-- All attempts with timing information
-- Message-by-message breakdown
-- Question usage statistics
-
 ## Customization
 
 ### Adding More Messages
@@ -300,28 +266,6 @@ Also update API URL in `script.js`:
 const API_BASE_URL = 'http://localhost:3000/api';
 ```
 
-## Troubleshooting
-
-### Server Won't Start
-- Check if Node.js is installed: `node --version`
-- Install dependencies: `npm install`
-- Check if port 3000 is available
-
-### Statistics Not Saving
-- Make sure server is running
-- Check browser console for errors
-- Verify API_BASE_URL matches server address
-- Check server logs for error messages
-
-### Can't Access Admin Dashboard
-- Ensure server is running
-- Navigate to correct URL: `http://localhost:3000/admin.html`
-- Check browser console for CORS errors
-
-### Data Not Appearing
-- Click "Refresh Data" in admin dashboard
-- Check that `user-statistics.json` file exists
-- Verify at least one user has completed a message
 
 ## Development
 
