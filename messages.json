@@ -1,6 +1,23 @@
 [
+  
   {
     "id": 1,
+    "sender": "Smishing Defense Training",
+    "content": "Welcome to Smishing Defense Training! This is a mobile-style, browser-based learning tool for cybersecurity awareness training. Users learn to identify smishing attempts through interactive message scenarios with immediate feedback.\r\n\r\n How to Play:\r\nRead each message carefully.\r\nChoose one of the three action options:\r\nAccept, Block, or Question.\r\n\r\nClick the corresponding button to make your selection. Receive immediate feedback on your choice. Continue playing until you have completed all the training messages. Track your progress and view your statistics on the menu.\r\n\r\n Good luck and stay vigilant to protect yourself from smishing attempts!",
+    "correctAction": "accept",
+    "cues": [
+      "Legitimate training welcome message",
+      "No suspicious links or requests",
+      "No urgency language or threats"
+    ],
+    "questionFeedback": "This is the legitimate welcome message for the Smishing Defense Training tool. It provides information about the tool and how to play, and doesn't contain any suspicious links or requests.",
+    "incorrectFeedback": {
+      "block": "This is the legitimate welcome message for the Smishing Defense Training tool. It doesn't contain any suspicious links or requests, and doesn't use urgency language or threats. There's no need to block this message.",
+      "question": null
+    }
+  },  
+  {
+    "id": 2,
     "sender": "Wells Fargo Security",
     "content": "URGENT ACTION REQUIRED: Your account will be suspended in 24 hours due to suspicious activity. Click here immediately to verify your identity: http://wells-fargo-secure.net/verify",
     "correctAction": "block",
@@ -17,7 +34,7 @@
     }
   },
   {
-    "id": 2,
+    "id": 3,
     "sender": "Amazon",
     "content": "Your Amazon order #123-4567890-1234567 has shipped! Expected delivery: Friday, Feb 14. Track your package in your orders.",
     "correctAction": "accept",
@@ -34,7 +51,7 @@
     }
   },
   {
-    "id": 3,
+    "id": 4,
     "sender": "IRS Tax Center",
     "content": "You have a pending tax refund of $1,847.32. To claim your refund, please verify your SSN and banking information at: irs-refund-portal.com/claim",
     "correctAction": "block",
@@ -51,7 +68,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 5,
     "sender": "IT Department",
     "content": "Hi team, our email server will undergo scheduled maintenance tonight from 11 PM to 2 AM EST. You may experience brief interruptions. No action needed on your part. - Mike from IT",
     "correctAction": "accept",
@@ -69,7 +86,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 6,
     "sender": "Apple Support",
     "content": "Your iCloud storage is full! Upgrade now to avoid losing your photos and data. Limited time: 50% off annual plan. Tap here: apple-cloud-storage.com/upgrade",
     "correctAction": "block",

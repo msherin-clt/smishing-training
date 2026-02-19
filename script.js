@@ -30,22 +30,25 @@ const backButton = document.querySelector('.back-button');
 // Initialize user ID (create or retrieve from localStorage)
 function initializeUser() {
   // Check if user ID exists in localStorage
-  userId = localStorage.getItem('whathack_userId');
-  userName = localStorage.getItem('whathack_userName');
-  
+  userId = localStorage.getItem('smishing_userId');
+  userName = localStorage.getItem('smishing_userName');
+  usergen = false;
   if (!userId) {
     // Generate a unique user ID
     userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('whathack_userId', userId);
+    localStorage.setItem('smishing_userId', userId);
     
     // Prompt for username (optional)
     const name = prompt('Welcome to Smishing Defense Training! Please enter your name (optional):');
     userName = name && name.trim() ? name.trim() : `User ${userId.substr(-6)}`;
-    localStorage.setItem('whathack_userName', userName);
+    localStorage.setItem('smishing_userName', userName);
+    usergen = true;
   }
   
   console.log(`User initialized: ${userName} (${userId})`);
+  return usergen;
 }
+
 
 // Load messages from JSON
 async function loadMessages() {
@@ -96,7 +99,7 @@ async function loadMessages() {
 
 // Load progress from localStorage (local tracking)
 function loadProgress() {
-  const saved = localStorage.getItem('whathack_progress');
+  const saved = localStorage.getItem('smishing_progress');
   if (saved) {
     userProgress = JSON.parse(saved);
   } else {
@@ -120,7 +123,7 @@ async function saveProgress(messageId, action, isCorrect) {
     timestamp: new Date().toISOString()
   };
   
-  localStorage.setItem('whathack_progress', JSON.stringify(userProgress));
+  localStorage.setItem('smishing_progress', JSON.stringify(userProgress));
   
   // Save to server (central tracking)
   try {
@@ -164,7 +167,9 @@ function initializeGame() {
     score = 0;
   }
   updateProgress();
+
   displayCurrentMessage();
+  
   
   // Set up event listeners (only once)
   acceptBtn.addEventListener('click', () => handleAction('accept'));
@@ -246,14 +251,14 @@ function handleAction(action) {
 // Show feedback when user clicks "Question"
 function showQuestionFeedback(message) {
   feedbackOverlay.className = 'feedback-overlay show feedback-info';
-  feedbackTitle.textContent = '🔍 Analysis';
+  feedbackTitle.textContent = 'Analysis';
   
-  let feedbackText = message.questionFeedback || 'Look carefully at this message.';
+  let feedbackText = message.questionFeedback || 'Look carefully at this message. Key indicators: ';
   
+  feedbackText += '\r\n';
   if (message.cues && message.cues.length > 0) {
-    feedbackText += '\n\nKey indicators:\n• ' + message.cues.join('\n• ');
+    feedbackText += message.cues.map((cue, index) => `${index + 1}. ${cue}`).join('\r\n');
   }
-  
   feedbackMessage.textContent = feedbackText;
   
   // After viewing, user can still make a choice
