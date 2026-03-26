@@ -39,8 +39,6 @@ function initializeUser() {
     localStorage.setItem('smishing_userId', userId);
     
     // Prompt for username (optional)
-    const name = prompt('Welcome to Smishing Defense Training! Please enter your name (optional):');
-    userName = name && name.trim() ? name.trim() : `User ${userId.substr(-6)}`;
     localStorage.setItem('smishing_userName', userName);
     usergen = true;
   }

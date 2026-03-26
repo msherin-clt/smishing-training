@@ -32,7 +32,7 @@ async function loadMessages() {
 
 // Load progress from localStorage
 function loadProgress() {
-  const saved = localStorage.getItem('whathack_progress');
+  const saved = localStorage.getItem('smishing_progress');
   if (saved) {
     userProgress = JSON.parse(saved);
   } else {
