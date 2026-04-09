@@ -18,7 +18,7 @@
   },  
   {
     "id": 2,
-    "sender": "Wells Fargo Security",
+    "sender": "689234",
     "content": "URGENT ACTION REQUIRED: Your account will be suspended in 24 hours due to suspicious activity. Click here immediately to verify your identity: http://wells-fargo-secure.net/verify",
     "correctAction": "block",
     "cues": [
