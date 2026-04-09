@@ -8,7 +8,7 @@ let isSequentialMode = false;
 let userId = null;
 
 // Server configuration
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = 'https://https://smishing-training.onrender.com//api';
 
 // DOM elements
 const messagesContainer = document.getElementById('messagesContainer');
