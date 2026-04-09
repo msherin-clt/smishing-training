@@ -4,6 +4,105 @@
   box-sizing: border-box;
 }
 
+
+.container {
+  width: 47vh;
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 4px;
+}
+/* App Header */
+.app-header {
+  background: #f8f9fa;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+}
+.feedback-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 25px;
+  margin: 20px;
+  text-align: left;
+  max-width: 90%;
+  animation: scaleIn 0.3s ease;
+}
+
+
+.feedback-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.feedback-message {
+  white-space: pre-wrap;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .btn {
+  padding: 3px 2px;
+  font-size: 15px;
+  font-weight: 300;
+  gap: 2px;
+}
+.progress-container {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-top: 1px solid #e0e0e0;
+}
+.app-header {
+  padding: 5px 5px;
+
+}
+.feedback-content {
+  padding: 15px 12px;
+  margin: 5px;
+  max-width: 90%;
+}
+.feedback-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.feedback-message {
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 20px;
+}
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -14,12 +113,6 @@ body {
   padding: 20px;
 }
 
-.container {
-  width: 43vh;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-}
 
 /* Phone Frame */
 .phone-frame {
@@ -50,15 +143,6 @@ body {
   gap: 5px;
 }
 
-/* App Header */
-.app-header {
-  background: #f8f9fa;
-  padding: 10px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #e0e0e0;
-}
 
 .back-button,
 .menu-button {
@@ -73,16 +157,14 @@ body {
   flex: 1;
   text-align: center;
 }
-
+.contact-avatar {
+  border-radius: 50%;
+  background-color: #cf3939;
+}
 .contact-name {
   font-size: 16px;
   font-weight: 600;
   color: #333;
-}
-
-.contact-status {
-  font-size: 11px;
-  color: #8e8e93;
 }
 
 /* Messages Container */
@@ -146,7 +228,7 @@ body {
 }
 
 .message-text {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.4;
 }
 
@@ -174,21 +256,7 @@ body {
   border-top: 1px solid #e0e0e0;
 }
 
-.btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 8px;
-  border: none;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  gap: 4px;
-}
+
 
 .btn-icon {
   font-size: 20px;
@@ -255,7 +323,7 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.85);
   display: none;
-  align-items: center;
+  align-items:  center;
   justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
@@ -274,15 +342,7 @@ body {
   }
 }
 
-.feedback-content {
-  background: white;
-  border-radius: 20px;
-  padding: 30px 25px;
-  margin: 20px;
-  text-align: center;
-  max-width: 300px;
-  animation: scaleIn 0.3s ease;
-}
+
 
 @keyframes scaleIn {
   from {
@@ -295,20 +355,6 @@ body {
   }
 }
 
-.feedback-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #333;
-}
-
-.feedback-message {
-  white-space: pre-wrap;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #666;
-  margin-bottom: 20px;
-}
 
 .btn-continue {
   background: #007aff;
