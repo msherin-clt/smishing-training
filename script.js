@@ -9,7 +9,7 @@ let userId = null;
 
 // Server configuration
 const API_BASE_URL = window.location.origin + '/api';
-
+console.log(API_BASE_URL);
 // DOM elements
 const messagesContainer = document.getElementById('messagesContainer');
 const senderName = document.getElementById('senderName');
@@ -176,7 +176,7 @@ function displayCurrentMessage() {
   }
 
   const message = messages[currentMessageIndex];
-  logButtonClick(`navigate to ${message.id}`);
+  logButtonClick(`navigate to ${message.id} ${message.correctAction}`);
   // Update sender name in header
   senderName.textContent = message.sender;
   
