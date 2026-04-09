@@ -9,7 +9,6 @@ let userId = null;
 
 // Server configuration
 const API_BASE_URL = window.location.origin + '/api';
-console.log(API_BASE_URL);
 // DOM elements
 const messagesContainer = document.getElementById('messagesContainer');
 const senderName = document.getElementById('senderName');
@@ -25,7 +24,7 @@ const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
 const actionButtons = document.getElementById('actionButtons');
 const backButton = document.querySelector('.back-button');
-
+const scoreContainer = document.getElementById('score-container');
 // Initialize user ID (create or retrieve from localStorage)
 function initializeUser() {
   // Check if user ID exists in localStorage
@@ -326,8 +325,9 @@ function nextMessage() {
 function updateProgress() {
   const progress = ((currentMessageIndex) / messages.length) * 100;
   progressBar.style.width = progress + '%';
-  progressText.textContent = `Message ${currentMessageIndex + 1} of ${messages.length}`;
+  progressText.textContent = `Message ${currentMessageIndex + 1} of ${messages.length}, Correct: ${score}`;
 }
+
 
 // Show game complete screen
 function showGameComplete() {
