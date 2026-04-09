@@ -22,7 +22,7 @@ async function initializeStatsFile() {
   } catch {
     // File doesn't exist, create it with empty array
     await fs.writeFile(STATS_FILE, JSON.stringify({ users: [] }, null, 2));
-    console.log('Created user-statistics.json file');
+    console.log('Created user-statistics.json file', );
   }
 }
 
@@ -40,7 +40,7 @@ app.post('/api/log-button-click', async (req, res) => {
 
     const now = new Date().toISOString();
     const logEntry = `${now} ${userId} ${action}\n`;
-
+    process.stdout.write(logEntry);
     await fs.appendFile(userLogFile, logEntry);
     res.json({ success: true, message: 'Button click logged' });
   } catch (error) {
