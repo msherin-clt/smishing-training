@@ -5,7 +5,7 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 
 // Middleware
 app.use(cors()); // Allow cross-origin requests
@@ -25,6 +25,32 @@ async function initializeStatsFile() {
     console.log('Created user-statistics.json file');
   }
 }
+
+// API endpoint to save button click logs
+app.post('/api/log-button-click', async (req, res) => {
+  try {
+    const { userId, action } = req.body;
+
+    // Validate required fields
+    if (!userId || !action) {
+      return res.status(400).json({ success: false, error: 'Missing required fields' });
+    }
+
+    const userLogFile = path.join(__dirname, `${userId}-logs.txt`);
+
+    const now = new Date().toISOString();
+    const logEntry = `${now} ${userId} ${action}\n`;
+
+    await fs.appendFile(userLogFile, logEntry);
+    res.json({ success: true, message: 'Button click logged' });
+  } catch (error) {
+    console.error('Error in /api/log-button-click:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to log button click'
+    });
+  }
+});
 
 // Load statistics from file
 async function loadStatistics() {

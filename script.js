@@ -6,10 +6,9 @@ let userProgress = {};
 let currentMessageId = null;
 let isSequentialMode = false;
 let userId = null;
-let userName = null;
 
 // Server configuration
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'http://localhost:8000/api';
 
 // DOM elements
 const messagesContainer = document.getElementById('messagesContainer');
@@ -31,20 +30,14 @@ const backButton = document.querySelector('.back-button');
 function initializeUser() {
   // Check if user ID exists in localStorage
   userId = localStorage.getItem('smishing_userId');
-  userName = localStorage.getItem('smishing_userName');
   usergen = false;
   if (!userId) {
     // Generate a unique user ID
     userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     localStorage.setItem('smishing_userId', userId);
-    
-    // Prompt for username (optional)
-    localStorage.setItem('smishing_userName', userName);
     usergen = true;
   }
-  
-  console.log(`User initialized: ${userName} (${userId})`);
-  return usergen;
+    return usergen;
 }
 
 
@@ -132,7 +125,6 @@ async function saveProgress(messageId, action, isCorrect) {
       },
       body: JSON.stringify({
         userId: userId,
-        userName: userName,
         messageId: messageId,
         action: action,
         correct: isCorrect,
@@ -184,7 +176,7 @@ function displayCurrentMessage() {
   }
 
   const message = messages[currentMessageIndex];
-  
+  logButtonClick(`navigate to ${message.id}`);
   // Update sender name in header
   senderName.textContent = message.sender;
   
@@ -324,15 +316,10 @@ function showIncorrectFeedback(message, userAction) {
 
 // Move to next message
 function nextMessage() {
-  if (isSequentialMode) {
-    // Sequential training mode - go to next message
-    currentMessageIndex++;
-    updateProgress();
-    displayCurrentMessage();
-  } else {
-    // Individual message mode - return to menu
-    goBackToMenu();
-  }
+  // Sequential training mode - go to next message
+  currentMessageIndex++;
+  updateProgress();
+  displayCurrentMessage();
 }
 
 // Update progress bar
@@ -414,6 +401,23 @@ function showError(message) {
   continueBtn.textContent = 'OK';
   continueBtn.onclick = hideOverlay;
 }
+
+function logButtonClick(action) {  
+  // Send the action log to server
+  fetch(`${API_BASE_URL}/log-button-click`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId, action })
+  }).catch(error => console.error('Failed to send button click:', error));
+}
+
+// Update event listeners for buttons
+acceptBtn.addEventListener('click', () => logButtonClick('accept'));
+questionBtn.addEventListener('click', () => logButtonClick('question'));
+blockBtn.addEventListener('click', () => logButtonClick('block'));
+continueBtn.addEventListener('click', () => logButtonClick('continue'));
+backButton.addEventListener('click', () => logButtonClick('back'));
+
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', loadMessages);
