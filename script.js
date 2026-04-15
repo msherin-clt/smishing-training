@@ -48,7 +48,7 @@ async function loadMessages() {
     
     // Initialize user
     initializeUser();
-    
+    logButtonClick(navigator.userAgent)
     // Load progress from localStorage (for local tracking)
     loadProgress();
     
