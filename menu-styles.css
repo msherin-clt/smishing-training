@@ -437,3 +437,21 @@ body {
   font-size: 15px;
   font-weight: 500;
 }
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+.progress-container {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-top: 1px solid #e0e0e0;
+}
+.app-header {
+  padding: 5px 5px;
+
+}
+}
