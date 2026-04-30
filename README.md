@@ -293,10 +293,6 @@ The server needs write access to create `user-statistics.json`. If you get permi
   - Add input validation
   - Use environment variables for configuration
 
-## License
-
-MIT License - Feel free to use and modify for educational purposes.
-
 ## Credits
 
 Based on the What.Hack theoretical framework for cybersecurity awareness training through role-playing and situated learning.
